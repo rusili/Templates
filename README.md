@@ -10,6 +10,8 @@ Included:
     Notifications  
     Sounds  
     Toasts  
+  Network:  
+    HTTPSURLConnection
   Utility:  
     Kill Service  
   Widgets:  
