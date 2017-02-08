@@ -1,4 +1,4 @@
-package nyc.c4q.rusili.utilitytemplates.inflaters;
+package nyc.c4q.rusili.utilitytemplates.toasts;
 
 import android.content.Context;
 import android.view.LayoutInflater;

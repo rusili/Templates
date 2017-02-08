@@ -18,6 +18,7 @@ public class FragmentBuilder {
     private int inAnimationParam;
     private int outAnimationParam;
     private boolean backstackParam;
+    private FragmentTransaction fragmentTransaction;
 
     private FragmentBuilder (Builder builder) {
         this.activityParam = builder.activityParam;
@@ -69,16 +70,21 @@ public class FragmentBuilder {
 
     public void inflateFragment () {
         if (!backstackParam) {
-            FragmentTransaction fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
+            fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(inAnimationParam, outAnimationParam)
                     .replace(containerIDParam, fragmentParam)
                     .commit();
         } else {
-            FragmentTransaction fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
+            fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
             fragmentTransaction.setCustomAnimations(inAnimationParam, outAnimationParam)
                     .replace(containerIDParam, fragmentParam)
                     .addToBackStack(null)
                     .commit();
         }
+    }
+
+    public void destroyFragment(Fragment fragmentParam){
+        fragmentTransaction = activityParam.getFragmentManager().beginTransaction();
+        fragmentTransaction.remove(fragmentParam).commit();
     }
 }
